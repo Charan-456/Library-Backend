@@ -1,8 +1,8 @@
 package routes
 
 import (
-	"github.com/Charan-456/funcs/handlers"
-	"github.com/Charan-456/funcs/middleware"
+	"github.com/Charan-456/Library-Backend/handlers"
+	"github.com/Charan-456/Library-Backend/middleware"
 	"github.com/gorilla/mux"
 )
 

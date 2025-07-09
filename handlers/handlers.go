@@ -8,8 +8,8 @@ import (
 	"os"
 	"time"
 
-	"github.com/Charan-456/funcs/middleware"
-	"github.com/Charan-456/funcs/models"
+	"github.com/Charan-456/Library-Backend/middleware"
+	"github.com/Charan-456/Library-Backend/models"
 	"github.com/golang-jwt/jwt/v5"
 )
 
