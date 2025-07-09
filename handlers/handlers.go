@@ -8,9 +8,9 @@ import (
 	"os"
 	"time"
 
+	"github.com/Charan-456/funcs/middleware"
+	"github.com/Charan-456/funcs/models"
 	"github.com/golang-jwt/jwt/v5"
-	"gitub.com/Charan-456/funcs/middleware"
-	"gitub.com/Charan-456/funcs/models"
 )
 
 func SignUp(w http.ResponseWriter, r *http.Request) {
@@ -90,7 +90,6 @@ func Login(w http.ResponseWriter, r *http.Request) {
 		"sub": userCreds.Username,
 		"exp": time.Now().Add(time.Hour).Unix(),
 	})
-
 	tokenSigned, err := token.SignedString([]byte(os.Getenv("SECRET_KEY")))
 	if err != nil {
 		http.Error(w, "The token signing failed", http.StatusInternalServerError)

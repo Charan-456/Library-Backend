@@ -4,13 +4,18 @@ import (
 	"log"
 	"net/http"
 
-	"gitub.com/Charan-456/funcs/models"
-	"gitub.com/Charan-456/funcs/routes"
+	"github.com/Charan-456/funcs/models"
+	"github.com/Charan-456/funcs/routes"
+	"github.com/joho/godotenv"
 )
 
 var portNumber = 9002
 
 func main() {
+	errors := godotenv.Load()
+	if errors != nil {
+		log.Fatal("Error loading .env file")
+	}
 	models.ConnectDB()
 	log.Println("Preparing server to run on port:", portNumber)
 	log.Println("Loading Admin Data")

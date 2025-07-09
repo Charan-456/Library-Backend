@@ -1,9 +1,9 @@
 package routes
 
 import (
+	"github.com/Charan-456/funcs/handlers"
+	"github.com/Charan-456/funcs/middleware"
 	"github.com/gorilla/mux"
-	"gitub.com/Charan-456/funcs/handlers"
-	"gitub.com/Charan-456/funcs/middleware"
 )
 
 func Routes() *mux.Router {

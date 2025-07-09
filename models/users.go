@@ -2,6 +2,7 @@ package models
 
 import (
 	"log"
+	"os"
 
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
@@ -33,7 +34,11 @@ func DumpData() {
 }
 
 func ConnectDB() {
-	dsn := "IndianLibrary:Indian#456@tcp(127.0.0.1:3307)/Indian_Library?charset=utf8mb4&parseTime=True&loc=Local"
+	dbUsername := os.Getenv("dbUser")
+	dbPassword := os.Getenv("dbPassword")
+	dbName := os.Getenv("dbName")
+	dbAddress := os.Getenv("hostAddress")
+	dsn := dbUsername + ":" + dbPassword + "@tcp(" + dbAddress + ")/" + dbName + "?charset=utf8mb4&parseTime=True&loc=Local"
 	dataBase, err := gorm.Open(mysql.Open(dsn), &gorm.Config{})
 	if err != nil {
 		panic("Error connecting DB, Check the host address and port,password,user")
