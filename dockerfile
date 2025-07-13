@@ -14,6 +14,7 @@ COPY . .
 
 RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o app .
 #building the application executable binary with name "app" by using source code from current working directory "."
+#This is a static binary building to make the binary independant of .so files or C dependencies, applicatioin is packed into one single binary named "app"
 
 FROM --platform=$BUILDPLATFORM alpine:latest
 #using alpine image for security and minimal image size
