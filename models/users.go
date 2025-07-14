@@ -1,6 +1,7 @@
 package models
 
 import (
+	"fmt"
 	"log"
 	"os"
 
@@ -37,9 +38,10 @@ func ConnectDB() {
 	dbUsername := os.Getenv("dbUser")
 	dbPassword := os.Getenv("dbPassword")
 	dbName := os.Getenv("dbName")
-	dbAddress := os.Getenv("hostAddress")
+	dbAddress := os.Getenv("dbAddress")
 	dsn := dbUsername + ":" + dbPassword + "@tcp(" + dbAddress + ")/" + dbName + "?charset=utf8mb4&parseTime=True&loc=Local"
 	dataBase, err := gorm.Open(mysql.Open(dsn), &gorm.Config{})
+	fmt.Println(dsn)
 	if err != nil {
 		panic("Error connecting DB, Check the host address and port,password,user")
 	}

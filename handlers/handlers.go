@@ -104,3 +104,7 @@ func Books(w http.ResponseWriter, r *http.Request) {
 	var UserName = middleware.ContextKey("user_name")
 	fmt.Fprintf(w, "Welocome to the store %v", r.Context().Value(UserName))
 }
+
+func Health(w http.ResponseWriter, r *http.Request) {
+	fmt.Fprintln(w, http.StatusOK)
+}

@@ -21,5 +21,7 @@ func main() {
 	log.Println("Loading Admin Data")
 	models.DumpData()
 	router := routes.Routes()
-	http.ListenAndServe("0.0.0.0:9002", router)
+	if err := http.ListenAndServe("0.0.0.0:9002", router); err != nil {
+		log.Panic("Error starting server")
+	}
 }

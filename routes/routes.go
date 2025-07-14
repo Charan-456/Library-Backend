@@ -11,9 +11,9 @@ func Routes() *mux.Router {
 	r.HandleFunc("/signIn", handlers.SignUp).Methods("POST")
 	r.HandleFunc("/AllUsers", handlers.GetAllUserNames).Methods("GET")
 	r.HandleFunc("/Login", handlers.Login)
+	r.HandleFunc("/health", handlers.Health)
 	sub := r.PathPrefix("/api").Subrouter()
 	sub.Use(middleware.JwtMiddleware)
 	sub.HandleFunc("/welcome", handlers.Books)
-
 	return r
 }
